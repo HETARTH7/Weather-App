@@ -1,13 +1,14 @@
 import { useState } from "react";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
-
-const REACT_APP_API_KEY = process.env.REACT_APP_API_KEY;
+import Image from "next/image";
 
 export default function Home() {
   const [city, setCity] = useState("");
   const [info, setInfo] = useState<any>({});
   const [tUnit, setTUnit] = useState("c");
+
+  const REACT_APP_API_KEY = process.env.REACT_APP_API_KEY;
 
   const display = (e: { preventDefault: () => void }) => {
     e.preventDefault();
@@ -59,6 +60,14 @@ export default function Home() {
           >
             C/F
           </button>
+          <h1 className="mt-5">Condition</h1>
+          <p>{info.condition.text}</p>
+          <Image
+            src={"https:" + info.condition.icon}
+            width={80}
+            height={80}
+            alt=""
+          ></Image>
         </div>
       )}
     </div>
