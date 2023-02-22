@@ -8,8 +8,6 @@ export default function Home() {
   const [info, setInfo] = useState<any>({});
   const [tUnit, setTUnit] = useState("c");
 
-  const REACT_APP_API_KEY = process.env.REACT_APP_API_KEY;
-
   const display = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     const options = {
@@ -17,7 +15,7 @@ export default function Home() {
       url: "https://weatherapi-com.p.rapidapi.com/current.json",
       params: { q: city },
       headers: {
-        "X-RapidAPI-Key": REACT_APP_API_KEY,
+        "X-RapidAPI-Key": "9d858542d8msh47906ce0cf5beabp18a90fjsn7c4697be1939",
         "X-RapidAPI-Host": "weatherapi-com.p.rapidapi.com",
       },
     };
@@ -60,14 +58,35 @@ export default function Home() {
           >
             C/F
           </button>
-          <h1 className="mt-5">Condition</h1>
-          <p>{info.condition.text}</p>
-          <Image
-            src={"https:" + info.condition.icon}
-            width={80}
-            height={80}
-            alt=""
-          ></Image>
+          <div className="row">
+            <div className="col">
+              <h1 className="mt-5">Condition</h1>
+              <p>{info.condition.text}</p>
+            </div>
+            <div className="col mt-4">
+              <Image
+                src={"https:" + info.condition.icon}
+                width={80}
+                height={80}
+                alt=""
+              ></Image>
+            </div>
+            <div className="col">
+              <h1 className="mt-5">Windspeed</h1>
+              <p>{info.wind_mph} m/s</p>
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="col">
+              <h1 className="mt-5">Pressure</h1>
+              <p>{info.pressure_mb}</p>
+            </div>
+            <div className="col">
+              <h1 className="mt-5">Humidity</h1>
+              <p>{info.humidity}</p>
+            </div>
+          </div>
         </div>
       )}
     </div>
