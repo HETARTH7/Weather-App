@@ -1,9 +1,10 @@
-"use client"
+"use client";
 
 import { SetStateAction, useEffect, useState } from "react";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Image from "next/image";
+import "./globals.css";
 
 export default function Home() {
   const [city, setCity] = useState(""); // State for storing the input city
