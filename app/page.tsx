@@ -46,10 +46,10 @@ export default function Home() {
 
     const options = {
       method: "GET",
-      url: "https://weatherapi-com.p.rapidapi.com/current.json",
+      url: process.env.NEXT_PUBLIC_URL,
       params: { q: city },
       headers: {
-        "X-RapidAPI-Key": "9d858542d8msh47906ce0cf5beabp18a90fjsn7c4697be1939",
+        "X-RapidAPI-Key": process.env.NEXT_PUBLIC_KEY,
         "X-RapidAPI-Host": "weatherapi-com.p.rapidapi.com",
       },
     };
